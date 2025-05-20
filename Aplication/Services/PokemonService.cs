@@ -3,38 +3,44 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PokeAPI.Aplication.DTOs;
 using PokeAPI.Infraestrutura;
+using PokeAPI.Aplication.UseCase;
+using PokeAPI.Models.Entities; // Certifique-se de importar o namespace correto
+using PokeAPI.Aplication.Repository; // Se você tiver um repositório
 
-namespace PokeAPI.Infrastructure.Services
+public class PokemonService : IPokemonService
 {
-    public class PokemonService : IPokemonService
+    private readonly PokemonHttpClient _pokemonHttpClient;
+    private readonly PokemonUseCase _pokemonUseCase; 
+
+    public PokemonService(PokemonHttpClient pokemonHttpClient, PokemonUseCase pokemonUseCase)
     {
-        private readonly PokemonHttpClient _pokemonHttpClient;
+        _pokemonHttpClient = pokemonHttpClient;
+        _pokemonUseCase = pokemonUseCase;
+    }
 
-        public PokemonService(PokemonHttpClient pokemonHttpClient)
+    public async Task<IActionResult> PegarSalvarPokemonsAsy()
+    {
+        var pokemonListJson = await _pokemonHttpClient.GetPokemonListAsync();
+        var jsonPokemon = JsonConvert.DeserializeObject<PokemonResponse>(pokemonListJson);
+
+        var listaFinal = new List<Pokemonss>();
+        foreach (var p in jsonPokemon!.listaPokemon!)
         {
-            _pokemonHttpClient = pokemonHttpClient;
+            var pokemonSpeciesJson = await _pokemonHttpClient.GetPokemonSpeciesAsync(p.Name!);
+            var jsonColor = JsonConvert.DeserializeObject<PokemonCores>(pokemonSpeciesJson);
+
+            var cor = jsonColor?.ColorList!.Name ?? "Sem Cor Definida";
+            listaFinal.Add(new Pokemonss { Nome = p.Name!, Cor = cor });
         }
 
-        public async Task<IActionResult> GetAllPokemons()
-        {
-            var pokemonListJson = await _pokemonHttpClient.GetPokemonListAsync();
-            var jsonPokemon = JsonConvert.DeserializeObject<PokemonResponse>(pokemonListJson);
+        // Conversão de DTO para Entities e salvando no banco
+        await _pokemonUseCase.SalvarListaAsync(listaFinal);
 
-            var listaFinal = new List<Pokemon>();
-            foreach (var p in jsonPokemon!.listaPokemon!)
-            {
-                var pokemonSpeciesJson = await _pokemonHttpClient.GetPokemonSpeciesAsync(p.Name!);
-                var jsonColor = JsonConvert.DeserializeObject<PokemonCores>(pokemonSpeciesJson);
 
-                var cor = jsonColor?.ColorList!.Name ?? "Sem Cor Definida";
-                listaFinal.Add(new Pokemon { Nome = p.Name!, Cor = cor });
-            }
+        var agruparPorCor = listaFinal
+            .GroupBy(p => p.Cor)
+            .ToDictionary(g => g.Key, g => g.Select(p => p.Nome).ToList());
 
-            var agruparPorCor = listaFinal
-                .GroupBy(p => p.Cor)
-                .ToDictionary(g => g.Key, g => g.Select(p => p.Nome).ToList());
-
-            return new JsonResult(agruparPorCor);
-        }
+        return new JsonResult(agruparPorCor);
     }
 }

@@ -34,7 +34,7 @@ namespace PokeAPI.Aplication.DTOs
     }
 
 
-    public class Pokemon
+    public class Pokemonss
     {
         public string Nome { get; set; } = string.Empty;
         public string Cor { get; set; } = string.Empty;
