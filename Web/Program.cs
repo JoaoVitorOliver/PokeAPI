@@ -4,6 +4,7 @@ using PokeAPI.Infraestrutura;
 using PokeAPI.Aplication.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PokeAPI.Aplication.UseCase;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 
 
@@ -21,9 +22,6 @@ builder.Services.AddHttpClient<PokemonHttpClient>();
 builder.Services.AddScoped<PokeAPI.Aplication.Repository.PokemonRepository>();
 builder.Services.AddScoped<PokemonUseCase>();
 
-
-
-builder.Services.AddScoped<PokemonUseCase>();
 
 
 // banco de dados

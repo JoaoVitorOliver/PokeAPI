@@ -25,5 +25,27 @@ namespace PokeAPI.Aplication.UseCase
                 await _pokemonRepository.AdicionarPokemonsNoBanco(pokemonEntity);
             }
         }
+
+        public async Task<Pokemon> ObterPokemonDoRepositoryById(int id)
+        {
+            var pokemon = await _pokemonRepository.ObterPokemonPorId(id);
+            if (pokemon == null)
+            {
+                throw new Exception($"Pokémon com ID {id} não encontrado.");
+            }
+            return pokemon;
+
+        }
+
+
+        public async Task DeletarPokemonDoRepositoryById(int id)
+        {
+            var pokemon = await _pokemonRepository.ObterPokemonPorId(id);
+            if (pokemon == null)
+            {
+                throw new Exception($"Pokémon com ID {id} não encontrado.");
+            }
+            await _pokemonRepository.DeletarPokemonPorId(id);
+        }
     }
 }
