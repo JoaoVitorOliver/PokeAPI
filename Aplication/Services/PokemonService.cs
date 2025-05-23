@@ -4,13 +4,14 @@ using Newtonsoft.Json;
 using PokeAPI.Aplication.DTOs;
 using PokeAPI.Infraestrutura;
 using PokeAPI.Aplication.UseCase;
-using PokeAPI.Models.Entities; // Certifique-se de importar o namespace correto
 using PokeAPI.Aplication.Repository; // Se você tiver um repositório
+using PokeAPI.Models.Entities;
+
 
 public class PokemonService : IPokemonService
 {
     private readonly PokemonHttpClient _pokemonHttpClient;
-    private readonly PokemonUseCase _pokemonUseCase; 
+    private readonly PokemonUseCase _pokemonUseCase;
 
     public PokemonService(PokemonHttpClient pokemonHttpClient, PokemonUseCase pokemonUseCase)
     {

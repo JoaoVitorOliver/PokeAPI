@@ -19,16 +19,25 @@ namespace PokeAPI.Infraestrutura
 
         public async Task<string> GetPokemonListAsync(int limit = 10)
         {
-            var response = await _httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon?limit={limit}");
+            try
+            {
+                var response = await _httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon?limit={limit}");
 
-            response.EnsureSuccessStatusCode(); 
-            return await response.Content.ReadAsStringAsync();
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (HttpRequestException)
+            {
+                throw new HttpRequestException();
+            }
+
         }
 
 
         public async Task<string> GetPokemonSpeciesAsync(string pokemonName)
         {
             var response = await _httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon-species/{pokemonName}");
+
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }

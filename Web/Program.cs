@@ -34,7 +34,7 @@ builder.Services.AddDbContext<PokemonDbContext>(options =>
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Minha API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Poke API", Version = "v1" });
 });
 
 var app = builder.Build();
