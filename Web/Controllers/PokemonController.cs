@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PokeAPI.Aplication.Interfaces;
 using PokeAPI.Aplication.UseCase;
-using PokeAPI.Models.Entities;
+using PokeAPI.Aplication.DTOs;
 
 namespace PokeAPI.WebAPI.Controllers
 {
@@ -21,6 +21,7 @@ namespace PokeAPI.WebAPI.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(Show), StatusCodes.Status200OK)]
         public async Task<ActionResult> GetAllPokemonController()
         {
             // Chama o serviço para obter os Pokémons
@@ -40,7 +41,7 @@ namespace PokeAPI.WebAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Show), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> PegarPokemonPorIdAsync([FromRoute] int id)
         {

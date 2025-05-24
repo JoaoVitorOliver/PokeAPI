@@ -39,4 +39,9 @@ namespace PokeAPI.Aplication.DTOs
         public string Nome { get; set; } = string.Empty;
         public string Cor { get; set; } = string.Empty;
     }
+
+    public class Show
+    {
+        public List<Pokemonss> ShowList { get; set; } = [];
+    }
 }
