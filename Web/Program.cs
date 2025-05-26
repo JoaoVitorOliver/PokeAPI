@@ -20,7 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IPokemonService, PokemonService>();
 builder.Services.AddHttpClient<PokemonHttpClient>();
 builder.Services.AddScoped<PokeAPI.Aplication.Repository.PokemonRepository>();
-builder.Services.AddScoped<PokemonUseCase>();
+builder.Services.AddScoped<SalvarCadastrarPokemonUseCase>();
 
 
 

@@ -110,3 +110,14 @@ C:\Users\joao.klauck\Desktop\Desafio\PokeAPI\obj\Debug\net8.0\refint\PokeAPI.dll
 C:\Users\joao.klauck\Desktop\Desafio\PokeAPI\obj\Debug\net8.0\PokeAPI.pdb
 C:\Users\joao.klauck\Desktop\Desafio\PokeAPI\obj\Debug\net8.0\PokeAPI.genruntimeconfig.cache
 C:\Users\joao.klauck\Desktop\Desafio\PokeAPI\obj\Debug\net8.0\ref\PokeAPI.dll
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.csproj.AssemblyReference.cache
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.AssemblyInfoInputs.cache
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.AssemblyInfo.cs
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.csproj.CoreCompileInputs.cache
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.sourcelink.json
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.dll
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\refint\PokeAPI.dll
+C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.pdb

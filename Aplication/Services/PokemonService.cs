@@ -11,9 +11,9 @@ using PokeAPI.Models.Entities;
 public class PokemonService : IPokemonService
 {
     private readonly PokemonHttpClient _pokemonHttpClient;
-    private readonly PokemonUseCase _pokemonUseCase;
+    private readonly SalvarCadastrarPokemonUseCase _pokemonUseCase;
 
-    public PokemonService(PokemonHttpClient pokemonHttpClient, PokemonUseCase pokemonUseCase)
+    public PokemonService(PokemonHttpClient pokemonHttpClient, SalvarCadastrarPokemonUseCase pokemonUseCase)
     {
         _pokemonHttpClient = pokemonHttpClient;
         _pokemonUseCase = pokemonUseCase;
