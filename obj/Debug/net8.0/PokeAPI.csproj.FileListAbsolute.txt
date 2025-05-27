@@ -121,3 +121,4 @@ C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.s
 C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.dll
 C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\refint\PokeAPI.dll
 C:\Users\kljoa\OneDrive\Área de Trabalho\API\PokeAPI\obj\Debug\net8.0\PokeAPI.pdb
+C:\Users\joao.klauck\Desktop\Desafio\PokeAPI\bin\Debug\net8.0\AutoMapper.dll

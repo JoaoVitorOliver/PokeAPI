@@ -4,7 +4,8 @@ using PokeAPI.Infraestrutura;
 using PokeAPI.Aplication.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PokeAPI.Aplication.UseCase;
-using Microsoft.AspNetCore.Mvc.Filters;
+using PokeAPI.Models.AutoMapper;
+
 
 
 
@@ -21,6 +22,10 @@ builder.Services.AddScoped<IPokemonService, PokemonService>();
 builder.Services.AddHttpClient<PokemonHttpClient>();
 builder.Services.AddScoped<PokeAPI.Aplication.Repository.PokemonRepository>();
 builder.Services.AddScoped<SalvarCadastrarPokemonUseCase>();
+builder.Services.AddScoped<ObterPokemonDoRepositoryByIdUseCase>();
+builder.Services.AddScoped<DeletarPokemonDoRepositoryByIdUseCase>();
+builder.Services.AddScoped<MappingPokemon>();
+builder.Services.AddAutoMapper(typeof(MappingPokemon));
 
 
 

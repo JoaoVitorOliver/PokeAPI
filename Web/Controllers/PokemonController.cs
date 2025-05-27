@@ -11,13 +11,15 @@ namespace PokeAPI.WebAPI.Controllers
     public class PokemonController : ControllerBase
     {
         private readonly IPokemonService _pokemonService;
-        private readonly PokemonUseCase _pokemonUseCase;
+        private readonly ObterPokemonDoRepositoryByIdUseCase _obterPoke;
+        private readonly DeletarPokemonDoRepositoryByIdUseCase _deletarPoke;
 
         // O controller agora depende da interface IPokemonService
-        public PokemonController(IPokemonService pokemonService, PokemonUseCase pokemonUseCase)
+        public PokemonController(IPokemonService pokemonService, ObterPokemonDoRepositoryByIdUseCase obterPoke, DeletarPokemonDoRepositoryByIdUseCase deletarPoke)
         {
-            _pokemonUseCase = pokemonUseCase;
+            _obterPoke = obterPoke;
             _pokemonService = pokemonService;
+            _deletarPoke = deletarPoke;
         }
 
         [HttpGet]
@@ -46,7 +48,7 @@ namespace PokeAPI.WebAPI.Controllers
         public async Task<ActionResult> PegarPokemonPorIdAsync([FromRoute] int id)
         {
             // Chama o serviço para obter o Pokémon por ID
-            var resultado = await _pokemonUseCase.ObterPokemonDoRepositoryById(id);
+            var resultado = await _obterPoke.ObterPokemonDoRepositoryById(id);
 
             // Verifica se o resultado é nulo
             if (resultado == null)
@@ -65,7 +67,7 @@ namespace PokeAPI.WebAPI.Controllers
         public async Task<ActionResult> DeletarPokemonPorIdAsync(int id)
         {
             // Chama o serviço para deletar o Pokémon por ID
-            await _pokemonUseCase.DeletarPokemonDoRepositoryById(id);
+            await _deletarPoke.DeletarPokemonDoRepositoryById(id);
 
             // Retorna um status 204 (No Content) se a exclusão for bem-sucedida
             return NoContent();

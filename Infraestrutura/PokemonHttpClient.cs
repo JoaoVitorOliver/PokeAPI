@@ -17,7 +17,7 @@ namespace PokeAPI.Infraestrutura
         }
 
 
-        public async Task<string> GetPokemonListAsync(int limit = 10)
+        public async Task<string> GetPokemonListAsync(int limit = 5)
         {
             try
             {
